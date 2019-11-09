@@ -20,4 +20,17 @@ app.post('/save-user', function(req, res) {
     res.json({message:"New name added"})
 })
 
+app.post('/delete-user', function(req, res) {
+    console.log(req.body);
+    if(names.includes(req.body.name)){
+        for( var i in names){ 
+            if ( names[i] === req.body.name) {
+              names.splice(i, 1); 
+            }
+         }
+        res.json({message:"User deleted"})
+    }
+    res.json({message:"User not found"})
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
