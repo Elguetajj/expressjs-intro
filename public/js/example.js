@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('.delete').click(function(){
-        let name = $('#{name}').data()
+        let name = $('#name').data()
         console.log(name)
         $.post('/delete-user', {name:name}, function(data, status) {
             console.log(`${data.message} and status is ${status}`)
